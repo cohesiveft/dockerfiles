@@ -1,10 +1,10 @@
-haproxy-ssl-ssh
+proxy-ssl-ssh
 ===============
 
-Key files
----------
+SSL Key files
+-------------
 
-ssl.key, ssl.crt and authorized_keys should be replaced with your own key files
+ssl.key and ssl.crt should be replaced with your own key files
 
 To generate your own private key:
 
@@ -22,6 +22,19 @@ To generate a Certificate Signing Request (CSR):
 To then make a certificate:
 
     openssl x509 -req -days 3650 -in ssl.csr -signkey ssl.key -out ssl.crt
+
+SSH Key file
+------------
+
+authorized_keys should also be replaced to use your own keys
+
+To generate a keypair:
+
+    ssh-keygen -t rsa
+    
+Then copy the public key to authorized_keys
+
+    cp id_rsa.pub authorized_keys
 
 Config files
 ------------
