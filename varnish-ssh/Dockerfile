@@ -1,0 +1,47 @@
+FROM ubuntu:12.04
+
+MAINTAINER cohesiveft
+
+# Add universe repository to /etc/apt/sources.list
+# we need it for supervisord
+RUN sed -i s/main/'main universe'/ /etc/apt/sources.list
+
+# Install wget
+RUN apt-get install wget -y
+
+# Add varnish-cache.org repo
+RUN wget -qO - http://repo.varnish-cache.org/debian/GPG-key.txt | apt-key add -
+RUN echo "deb http://repo.varnish-cache.org/ubuntu/ precise varnish-3.0" | tee -a /etc/apt/sources.list
+
+# Make sure everything is up to date - update and upgrade
+RUN apt-get update && apt-get upgrade -y
+
+# Install
+RUN apt-get install -y varnish openssh-server supervisor
+
+# Create privilege separation directory
+RUN mkdir -p /var/run/sshd
+
+# Create .ssh directory for authorized keys
+RUN mkdir -p /root/.ssh
+
+# Create log directory for supervisor
+RUN mkdir -p /var/log/supervisor
+
+# Copy configuration files from the current directory
+ADD ./authorized_keys /root/.ssh/
+ADD custom.vcl /etc/varnish/
+ADD supervisord.conf /etc/supervisor/conf.d/
+
+# Ensure correct permissions for root/.ssh
+RUN chmod 700 /root/.ssh && chmod 600 /root/.ssh/authorized_keys && chown -R root /root/.ssh
+
+# Expose ports
+EXPOSE 22 80
+
+# Set the default command to execute
+# when creating a new container
+CMD /usr/bin/supervisord
+
+# Example runline:
+# sudo docker run -d -p 2222:22 -p 80:80 cohesiveft/varnish-ssh
