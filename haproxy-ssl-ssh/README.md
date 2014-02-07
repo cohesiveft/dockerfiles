@@ -1,4 +1,4 @@
-proxy-ssl-ssh
+haproxy-ssl-ssh
 ===============
 
 SSL Key files
