@@ -1,6 +1,8 @@
 haproxy-ssl-ssh
 ===============
 
+See the [Using Docker.io for SSL termination and load balancing](http://blog.cohesiveft.com/2014/02/using-dockerio-for-ssl-termination-and.html) blog post for more details on usage.
+
 SSL Key files
 -------------
 
