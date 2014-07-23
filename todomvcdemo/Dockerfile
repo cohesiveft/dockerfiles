@@ -2,6 +2,16 @@ FROM ubuntu:12.04
 
 MAINTAINER cpswan
 
+# This copyrighted material is the property of
+# Cohesive Flexible Technologies and is subject to the license
+# terms of the product it is contained within, whether in text
+# or compiled form.  It is licensed under the terms expressed
+# in the accompanying README.md and LICENSE.md files.
+#
+# This program is AS IS and  WITHOUT ANY WARRANTY; without even
+# the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.
+
 # add universe repository to /etc/apt/sources.list
 # we need it for rubygems
 RUN sed -i s/main/'main universe'/ /etc/apt/sources.list
