@@ -1,4 +1,4 @@
 dockerfiles
 ===========
 
-Dockerfiles for trusted builds in Docker.io public index
+Dockerfiles for automated builds in [Docker Hub](https://hub.docker.com/u/cohesiveft/)
