@@ -1,6 +1,8 @@
 varnish-ssh
 ===========
 
+See the [Using Docker.io for content caching](http://blog.cohesiveft.com/2014/02/using-dockerio-for-content-caching.html) blog post for more details on usage.
+
 SSH Key file
 ------------
 
