@@ -16,6 +16,9 @@ MAINTAINER cohesiveft
 # we need it for supervisord
 RUN sed -i s/main/'main universe'/ /etc/apt/sources.list
 
+# Update so that sources.list changes take effect
+RUN apt-get update
+
 # Install wget
 RUN apt-get install wget -y
 
@@ -23,7 +26,7 @@ RUN apt-get install wget -y
 RUN wget -qO - http://repo.varnish-cache.org/debian/GPG-key.txt | apt-key add -
 RUN echo "deb http://repo.varnish-cache.org/ubuntu/ precise varnish-3.0" | tee -a /etc/apt/sources.list
 
-# Make sure everything is up to date
+# Update again
 RUN apt-get update
 
 # Install
