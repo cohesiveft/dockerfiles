@@ -3,16 +3,7 @@ net-tools
 
 A selection of network diagnostic tools including:
 
-netstat
-iostat
-vmstat
-iptraf
-sar
-sysstat
-iftop
-tcpdump
-hping3
-nethogs
+'netstat' 'iostat' 'vmstat' 'iptraf' 'sar' 'sysstat' 'iftop' 'tcpdump' 'hping3' 'nethogs'
 
 SSH Key file
 ------------
