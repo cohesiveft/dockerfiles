@@ -1,0 +1,1 @@
+alert tcp any any <> any any (pcre:"/5\d{3}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}/"; msg:"MasterCard number detected in clear text";sid:9000001;rev:1;)
